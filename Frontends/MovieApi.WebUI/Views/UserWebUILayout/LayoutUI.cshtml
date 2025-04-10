@@ -1,5 +1,6 @@
-﻿@{
-	Layout = null;
+﻿
+@{
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -24,23 +25,23 @@
 	<!--login form popup-->
 	@await Component.InvokeAsync("_UserLayoutWebUILoginModalComponentPartial")
 
-
+	
 	<!--end of login form popup-->
 	<!--signup form popup-->
 	@await Component.InvokeAsync("_UserLayoutWebUIRegisterModalComponentPartial")
-
+	
 	<!--end of signup form popup-->
 	<!-- BEGIN | Header -->
 	@await Component.InvokeAsync("_UserLayoutWebUINavbarComponentPartial")
-
+	
 
 	<!-- END | Header -->
 	@await Component.InvokeAsync("_UserLayoutWebUIHeroComponentPartial")
-
-
+	
+	
 	@RenderBody()
 
-
+	
 	<!-- footer section-->
 	@await Component.InvokeAsync("_UserLayoutWebUIFooterComponentPartial")
 
