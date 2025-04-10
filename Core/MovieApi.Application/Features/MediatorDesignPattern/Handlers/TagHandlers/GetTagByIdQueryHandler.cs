@@ -20,7 +20,7 @@ namespace MovieApi.Application.Features.MediatorDesignPattern.Handlers.TagHandle
         }
         public async Task<GetTagByIdQueryResult> Handle(GetTagByIdQuery request, CancellationToken cancellationToken)
         {
-            var values = await _context.Casts.FindAsync(request.TagID);
+            var values = await _context.Tags.FindAsync(request.TagID);
             return new GetTagByIdQueryResult
             {
                 Title = values.Title
