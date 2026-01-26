@@ -1,13 +1,13 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MediatR;
 
 namespace MovieApi.Application.Features.MediatorDesignPattern.Commands.TagCommands
 {
-    public class CreateTagCommand:IRequest
+    public class CreateTagCommand : IRequest
     {
         public string Title { get; set; }
     }

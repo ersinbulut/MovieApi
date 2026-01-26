@@ -8,11 +8,11 @@ namespace MovieApi.Application.Features.CQRSDesignPattern.Queries.MovieQueries
 {
     public class GetMovieByIdQuery
     {
-        public GetMovieByIdQuery(int movieID)
+        public GetMovieByIdQuery(int movieId)
         {
-            MovieID = movieID;
+            MovieId = movieId;
         }
 
-        public int MovieID { get; set; }
+        public int MovieId { get; set; }
     }
 }

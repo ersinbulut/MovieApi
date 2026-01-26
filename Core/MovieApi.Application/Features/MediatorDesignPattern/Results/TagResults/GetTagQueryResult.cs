@@ -8,7 +8,7 @@ namespace MovieApi.Application.Features.MediatorDesignPattern.Results.TagResults
 {
     public class GetTagQueryResult
     {
-        public int TagID { get; set; }
+        public int TagId { get; set; }
         public string Title { get; set; }
     }
 }

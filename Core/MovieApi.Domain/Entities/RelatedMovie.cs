@@ -8,9 +8,9 @@ namespace MovieApi.Domain.Entities
 {
     public class RelatedMovie
     {
-        public int RelatedMovieID { get; set; }
-        public int MovieID { get; set; }
-        public int UserID { get; set; }
+        public int RelatedMovieId { get; set; }
+        public int MovieId { get; set; }
+        public int UserId { get; set; }
         public bool IsWatch { get; set; }
     }
 }
