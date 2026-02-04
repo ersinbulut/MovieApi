@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MovieApi.Dto.Dtos.UserRegisterDto;
+using MovieApi.Dto.Dtos.UserRegisterDtos;
 using Newtonsoft.Json;
 
 namespace MovieApi.WebUI.Controllers

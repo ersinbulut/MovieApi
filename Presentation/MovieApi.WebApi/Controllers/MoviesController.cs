@@ -17,6 +17,7 @@ namespace MovieApi.WebApi.Controllers
         private readonly RemoveMovieCommandHandler _removeMovieCommandHandler;
         private readonly GetMovieWithCategoryQueryHandler _getMovieWithCategoryQueryHandler;
 
+
         public MoviesController(GetMovieByIdQueryHandler getMovieByIdQueryHandler, GetMovieQueryHandler getMovieQueryHandler, CreateMovieCommandHandler createMovieCommandHandler, UpdateMovieCommandHandler updateMovieCommandHandler, RemoveMovieCommandHandler removeMovieCommandHandler, GetMovieWithCategoryQueryHandler getMovieWithCategoryQueryHandler)
         {
             _getMovieByIdQueryHandler = getMovieByIdQueryHandler;
@@ -29,44 +30,36 @@ namespace MovieApi.WebApi.Controllers
 
         [HttpGet]
         public async Task<IActionResult> MovieList()
-        {
-            var value = await _getMovieQueryHandler.Handle();
-            return Ok(value);
-        }
+        => Ok(await _getMovieQueryHandler.Handle());
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetMovie(int id)
+            => Ok(await _getMovieByIdQueryHandler.Handle(new GetMovieByIdQuery(id)));
 
         [HttpPost]
-        public async Task<IActionResult> CreateMovie(CreateMovieCommand command)
+        public async Task<IActionResult> CreateMovie([FromBody] CreateMovieCommand command)
         {
             await _createMovieCommandHandler.Handle(command);
             return Ok("Film ekleme işlemi başarılı");
         }
 
-        [HttpDelete]
+        [HttpPut]
+        public async Task<IActionResult> UpdateMovie([FromBody] UpdateMovieCommand command)
+        {
+            await _updateMovieCommandHandler.Handle(command);
+            return Ok("Film güncelleme işlemi başarılı");
+        }
+
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMovie(int id)
         {
             await _removeMovieCommandHandler.Handle(new RemoveMovieCommand(id));
             return Ok("Film silme işlemi başarılı");
         }
 
-        [HttpGet("GetMovie")]
-        public async Task<IActionResult> GetMovie(int id)
-        {
-            var value = await _getMovieByIdQueryHandler.Handle(new GetMovieByIdQuery(id));
-            return Ok(value);
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> UpdateMovie(UpdateMovieCommand command)
-        {
-            await _updateMovieCommandHandler.Handler(command);
-            return Ok("Film güncelleme işlemi başarılı");
-        }
-
-        [HttpGet("GetMovieWithCategory")]
+        [HttpGet("with-category")]
         public async Task<IActionResult> GetMovieWithCategory()
-        {
-            var value = await _getMovieWithCategoryQueryHandler.Handle();
-            return Ok(value);
-        }
+            => Ok(await _getMovieWithCategoryQueryHandler.Handle());
     }
 }
+

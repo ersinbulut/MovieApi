@@ -27,7 +27,8 @@ namespace MovieApi.Application.Features.CQRSDesignPattern.Handlers.MovieHandlers
                 Rating = command.Rating,
                 ReleaseDate = command.ReleaseDate,
                 Status = command.Status,
-                Title = command.Title
+                Title = command.Title,
+                CategoryId = command.CategoryId,
             });
             await _context.SaveChangesAsync();
         }

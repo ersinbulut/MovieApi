@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MovieApi.Application.Features.CQRSDesignPattern.Results.CategoryResults;
 using MovieApi.Application.Features.CQRSDesignPattern.Results.MovieResults;
 using MovieApi.Persistence.Context;
 using System;
